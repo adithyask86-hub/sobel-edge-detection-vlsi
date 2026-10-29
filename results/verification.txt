@@ -1,0 +1,8 @@
+Image: 16x16 grayscale
+Threshold: 180
+Expected interior outputs: 196
+HDL output records: 196
+Max gradient score: 1170
+Pixels >= threshold (180): 115 (58.7%)
+Mismatch count: 0
+Status: PASS
