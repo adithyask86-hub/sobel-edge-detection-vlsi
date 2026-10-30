@@ -169,3 +169,50 @@ Recommended signals to inspect:
 - `tb_sobel_stream.edge_out[7:0]`: Hardware binary edge output (0x00 / 0xFF).
 - `tb_sobel_stream.edge_score_out[15:0]`: Gradient magnitude score.
 - `tb_sobel_stream.out_x[15:0]`, `out_y[15:0]`: Output coordinates.
+
+---
+
+## 8. Visual Results & Hardware Demonstration
+
+### 8.1 Input Image and Python Reference
+
+The following visualization presents the sample input image, independent Python Sobel reference output, and gradient score distribution.
+
+![Input and Python Reference](results/preview.png)
+
+### 8.2 Verilog Hardware Simulation Results
+
+The following images are generated from the actual Verilog RTL simulation using Icarus Verilog.
+
+**Binary Edge Detection Output**
+
+![Verilog Binary Edge Output](results/hdl_edges.png)
+
+**Grayscale Sobel Gradient Output**
+
+![Verilog Grayscale Edge Output](results/hdl_gray_edges.png)
+
+**Gradient Magnitude Visualization**
+
+![Gradient Score Preview](results/hdl_edge_scores_preview.png)
+
+### 8.3 Hardware and Software Verification
+
+The Verilog RTL output is compared against an independent Python reference implementation.
+
+| Verification Metric | Result |
+|---|---:|
+| Resolution | 128 × 128 |
+| Interior Pixels Evaluated | 15,876 |
+| Edge Bit Mismatches | 0 |
+| Gradient Score Mismatches | 0 |
+| Bit-Exact Match Rate | 100% |
+| Verification Status | PASS |
+
+The hardware simulation achieved a 100% bit-exact match with the independent Python reference model for all evaluated interior pixels.
+
+### 8.4 Hardware Architecture
+
+![Sobel Hardware Architecture](block_diagram.png)
+
+---
